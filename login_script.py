@@ -11,6 +11,10 @@ import os
 TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
 
+# 从环境变量中获取 Gotify 的参数
+Gotify_Server = os.getenv('Gotify_Server')
+Gotify_Token = os.getenv('Gotify_Token')
+
 def format_to_iso(date):
     return date.strftime('%Y-%m-%d %H:%M:%S')
 
@@ -122,12 +126,26 @@ async def send_telegram_message(message):
     headers = {
         'Content-Type': 'application/json'
     }
+    
+    url_Gotify = f"{Gotify_Server}/message?token={Gotify_Token}"
+    json_Gotify = {
+        "message":message,
+        "title":"Serv00自动登录",
+        "priority":5
+    }
     try:
         response = requests.post(url, json=payload, headers=headers)
         if response.status_code != 200:
             print(f"发送消息到Telegram失败: {response.text}")
     except Exception as e:
         print(f"发送消息到Telegram时出错: {e}")
+
+    try:
+        response_Gotify = requests.post(url_Gotify, json=json_Gotify)
+        if response_Gotify.status_code != 200:
+            print(f"发送消息到Gotify失败: {response.text}")
+    except Exception as e:
+        print(f"发送消息到Gotify时出错: {e}")
 
 if __name__ == '__main__':
     asyncio.run(main())
