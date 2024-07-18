@@ -126,6 +126,8 @@ async def send_telegram_message(message):
     headers = {
         'Content-Type': 'application/json'
     }
+
+    print(f'{GOTIFY_SERVER},{GOTIFY_TOKEN}')
     
     url_Gotify = f"{GOTIFY_SERVER}/message?token={GOTIFY_TOKEN}"
     json_Gotify = {
