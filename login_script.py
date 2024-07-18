@@ -12,8 +12,8 @@ TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
 
 # 从环境变量中获取 Gotify 的参数
-Gotify_Server = os.getenv('Gotify_Server')
-Gotify_Token = os.getenv('Gotify_Token')
+GOTIFY_SERVER = os.getenv('GOTIFY_SERVER')
+GOTIFY_TOKEN = os.getenv('GOTIFY_TOKEN')
 
 def format_to_iso(date):
     return date.strftime('%Y-%m-%d %H:%M:%S')
