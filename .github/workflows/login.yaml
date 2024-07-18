@@ -36,5 +36,7 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           ACCOUNTS_JSON: ${{ secrets.ACCOUNTS_JSON }}
+          GOTIFY_SERVER: ${{ secrets.GOTIFY_SERVER }}
+          GOTIFY_TOKEN: ${{ secrets.GOTIFY_TOKEN }}
         run: |
           python login_script.py
