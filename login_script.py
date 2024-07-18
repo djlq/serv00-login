@@ -127,7 +127,7 @@ async def send_telegram_message(message):
         'Content-Type': 'application/json'
     }
     
-    url_Gotify = f"{Gotify_Server}/message?token={Gotify_Token}"
+    url_Gotify = f"{GOTIFY_SERVER}/message?token={GOTIFY_TOKEN}"
     json_Gotify = {
         "message":message,
         "title":"Serv00自动登录",
